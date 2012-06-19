@@ -1,6 +1,6 @@
 package OpenID::Login::Extension;
 {
-  $OpenID::Login::Extension::VERSION = '0.1.0';
+  $OpenID::Login::Extension::VERSION = '0.1.1';
 }
 
 # ABSTRACT: Storage and methods for OpenId extensions, both requesting information and receiving data.
@@ -175,7 +175,7 @@ OpenID::Login::Extension - Storage and methods for OpenId extensions, both reque
 
 =head1 VERSION
 
-version 0.1.0
+version 0.1.1
 
 =head1 ATTRIBUTES
 

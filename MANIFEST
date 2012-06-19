@@ -4,6 +4,7 @@ META.json
 META.yml
 Makefile.PL
 README
+Readme.md
 dist.ini
 examples/00_login.html
 examples/01_openid_redirect.pl

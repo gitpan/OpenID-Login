@@ -1,6 +1,6 @@
 package OpenID::Login::URI;
 {
-  $OpenID::Login::URI::VERSION = '0.1.0';
+  $OpenID::Login::URI::VERSION = '0.1.1';
 }
 
 # ABSTRACT: OpenID Identifier validation and encoding for OpenID::Login.
@@ -126,7 +126,7 @@ OpenID::Login::URI - OpenID Identifier validation and encoding for OpenID::Login
 
 =head1 VERSION
 
-version 0.1.0
+version 0.1.1
 
 =head1 METHODS
 

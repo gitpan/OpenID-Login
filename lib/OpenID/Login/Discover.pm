@@ -1,6 +1,6 @@
 package OpenID::Login::Discover;
 {
-  $OpenID::Login::Discover::VERSION = '0.1.0';
+  $OpenID::Login::Discover::VERSION = '0.1.1';
 }
 
 # ABSTRACT: Find an endpoint for generic OpenID identifiers
@@ -68,7 +68,7 @@ OpenID::Login::Discover - Find an endpoint for generic OpenID identifiers
 
 =head1 VERSION
 
-version 0.1.0
+version 0.1.1
 
 =head1 METHODS
 

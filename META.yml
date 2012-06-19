@@ -27,4 +27,4 @@ requires:
 resources:
   homepage: http://github.com/realholgi/OpenID-Login
   repository: git://github.com/realholgi/OpenID-Login.git
-version: 0.1.0
+version: 0.1.1

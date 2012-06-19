@@ -1,6 +1,6 @@
 package OpenID::Login::Types;
 {
-  $OpenID::Login::Types::VERSION = '0.1.0';
+  $OpenID::Login::Types::VERSION = '0.1.1';
 }
 
 # ABSTRACT: Types for Net-OpenIdLogin.
@@ -27,7 +27,7 @@ OpenID::Login::Types - Types for Net-OpenIdLogin.
 
 =head1 VERSION
 
-version 0.1.0
+version 0.1.1
 
 =head1 AUTHOR
 
