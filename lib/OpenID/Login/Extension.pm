@@ -1,6 +1,6 @@
 package OpenID::Login::Extension;
 {
-  $OpenID::Login::Extension::VERSION = '0.1.1';
+  $OpenID::Login::Extension::VERSION = '0.1.2';
 }
 
 # ABSTRACT: Storage and methods for OpenId extensions, both requesting information and receiving data.
@@ -36,24 +36,20 @@ around BUILDARGS => sub {
     my $args;
     if ( @_ == 1 && ref $_[0] eq 'HASH' ) {
         $args = $_[0];
-    }
-    else {
+    } else {
         $args = {@_};
     }
     if ( $args->{cgi} or $args->{cgi_params} ) {
         my $new_args;
         if ( $args->{uri} ) {
             $new_args = _extract_attributes_by_uri($args);
-        }
-        elsif ( $args->{ns} ) {
+        } elsif ( $args->{ns} ) {
             $new_args = _extract_attributes_by_ns($args);
-        }
-        else {
+        } else {
             die 'Unable to determine extension details';
         }
         return $class->$orig($new_args);
-    }
-    else {
+    } else {
         return $class->$orig(@_);
     }
 };
@@ -90,8 +86,7 @@ sub _extract_attributes_by_ns {
     if ($cgi) {
         my %signed_params = map { ( "openid.$_" => 1 ) } split /,/, $cgi->param('openid.signed');
         %attributes = ( map { substr( $_, $prefix_len ) => scalar $cgi->param($_) } grep { /^\Q$prefix\E/ and $signed_params{$_} } $cgi->param() );
-    }
-    else {
+    } else {
         my %signed_params = map { ( "openid.$_" => 1 ) } split /,/, $cgi_params->{'openid.signed'};
         %attributes = ( map { substr( $_, $prefix_len ) => $cgi_params->{$_} } grep { /^\Q$prefix\E/ and $signed_params{$_} } keys %$cgi_params );
     }
@@ -175,7 +170,7 @@ OpenID::Login::Extension - Storage and methods for OpenId extensions, both reque
 
 =head1 VERSION
 
-version 0.1.1
+version 0.1.2
 
 =head1 ATTRIBUTES
 
@@ -200,7 +195,7 @@ linked together with '.'.
 Collect the internal attributes, and create a single string representing the query of this extension object,
 usable for an OpenID request.
 
-=head2 get_parameter_string
+=head2 get_parameter
 
 Get a single extension parameter, this is most likely to be used for extensions that are
 the result of a request (rather than when creating a request).
@@ -223,7 +218,7 @@ Holger Eiboeck <realholgi@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2012 by Holger Eiboeck.
+This software is copyright (c) 2013 by Holger Eiboeck.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

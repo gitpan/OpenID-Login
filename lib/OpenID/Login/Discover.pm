@@ -1,6 +1,6 @@
 package OpenID::Login::Discover;
 {
-  $OpenID::Login::Discover::VERSION = '0.1.1';
+  $OpenID::Login::Discover::VERSION = '0.1.2';
 }
 
 # ABSTRACT: Find an endpoint for generic OpenID identifiers
@@ -24,7 +24,7 @@ sub perform_discovery {
     my $self = shift;
 
     my $claimed_id = $self->claimed_id;
-    my $server     = $self->_get_xrds_location($claimed_id);
+    my $server = $self->_get_xrds_location($claimed_id) || $self->claimed_id;
     my $open_id_endpoint;
     if ($server) {
         my $xrds = $self->_get($server)->decoded_content;
@@ -68,7 +68,7 @@ OpenID::Login::Discover - Find an endpoint for generic OpenID identifiers
 
 =head1 VERSION
 
-version 0.1.1
+version 0.1.2
 
 =head1 METHODS
 
@@ -82,7 +82,7 @@ Holger Eiboeck <realholgi@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2012 by Holger Eiboeck.
+This software is copyright (c) 2013 by Holger Eiboeck.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.

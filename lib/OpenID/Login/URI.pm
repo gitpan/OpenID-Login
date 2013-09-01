@@ -1,6 +1,6 @@
 package OpenID::Login::URI;
 {
-  $OpenID::Login::URI::VERSION = '0.1.1';
+  $OpenID::Login::URI::VERSION = '0.1.2';
 }
 
 # ABSTRACT: OpenID Identifier validation and encoding for OpenID::Login.
@@ -81,28 +81,21 @@ sub _remove_dot_segments {
     while ( length($path) > 0 ) {
         if ( $path =~ m!^\.\./! ) {
             $path = substr( $path, 3 );
-        }
-        elsif ( $path =~ m!^\./! ) {
+        } elsif ( $path =~ m!^\./! ) {
             $path = substr( $path, 2 );
-        }
-        elsif ( $path =~ m!^/\./! ) {
+        } elsif ( $path =~ m!^/\./! ) {
             $path = substr( $path, 2 );
-        }
-        elsif ( $path eq q{/.} ) {
+        } elsif ( $path eq q{/.} ) {
             $path = q{/};
-        }
-        elsif ( $path =~ m!^/\.\./! ) {
+        } elsif ( $path =~ m!^/\.\./! ) {
             $path = substr( $path, 3 );
             pop(@result_segments) if @result_segments > 0;
-        }
-        elsif ( $path eq q{/..} ) {
+        } elsif ( $path eq q{/..} ) {
             $path = q{/};
             pop(@result_segments) if @result_segments > 0;
-        }
-        elsif ( $path eq q{..} || $path eq q{.} ) {
+        } elsif ( $path eq q{..} || $path eq q{.} ) {
             $path = q{};
-        }
-        else {
+        } else {
             my $i = 0;
             $i = 1 if substr( $path, 0, 1 ) eq q{/};
             $i = index( $path, q{/}, $i );
@@ -126,7 +119,7 @@ OpenID::Login::URI - OpenID Identifier validation and encoding for OpenID::Login
 
 =head1 VERSION
 
-version 0.1.1
+version 0.1.2
 
 =head1 METHODS
 
@@ -144,7 +137,7 @@ Holger Eiboeck <realholgi@cpan.org>
 
 =head1 COPYRIGHT AND LICENSE
 
-This software is copyright (c) 2012 by Holger Eiboeck.
+This software is copyright (c) 2013 by Holger Eiboeck.
 
 This is free software; you can redistribute it and/or modify it under
 the same terms as the Perl 5 programming language system itself.
